@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MobiGo — Каршеринг</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fffbeb;                 /* очень светло-жёлтый фон */
+      --card: #ffffff;               /* белые карточки */
+      --muted: #8a7f44;              /* тёплый тёмно-жёлтый для текста */
+      --accent: #f5d02a;             /* ярко-жёлтый */
+      --accent-2: #ffd166;           /* мягкий жёлтый */
+      --shadow: 0 10px 30px rgba(245, 208, 42, 0.1);
+      --glass: rgba(255,255,255,0.85);
+      --radius: 12px;
+    }
+
+    /* Base */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #fffdf7 60%);
+      color: #0f1724;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 4px 18px rgba(138, 127, 68, 0.08);
+    }
+    .navbar-brand { font-weight:700; color:var(--accent) !important; font-size:1.125rem; }
+    .nav-link { color:var(--muted) !important; font-weight:500; }
+    .nav-link:hover { color:var(--accent) !important; }
+
+    /* Hero */
+    .hero {
+      padding: 88px 0 64px;
+      background: linear-gradient(180deg, rgba(245, 208, 42, 0.08), rgba(255,255,255,0.0));
+    }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+    .hero h1 { font-size:2.25rem; font-weight:700; letter-spacing:-0.02em; }
+    .hero p.lead { color:var(--muted); margin-top:0.5rem; }
+
+    /* Buttons */
+    .btn-cta {
+      background: linear-gradient(90deg, var(--accent), #e6a800);
+      color: #0f1724;
+      border: none;
+      padding: 0.65rem 1.15rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(245, 208, 42, 0.3);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(245, 208, 42, 0.4);
+    }
+
+    .btn-alt {
+      background: transparent;
+      border: 1px solid rgba(138, 127, 68, 0.15);
+      color: var(--muted);
+      border-radius: 10px;
+      padding: .55rem .95rem;
+    }
+
+    /* Cards */
+    .card-modern {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+    .card-modern:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(138, 127, 68, 0.1); }
+
+    .car-img {
+      height: 190px;
+      object-fit: cover;
+      width: 100%;
+      display: block;
+    }
+
+    .feature {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 30px rgba(138, 127, 68, 0.04);
+      transition: transform .22s ease;
+    }
+    .feature:hover { transform: translateY(-6px); }
+
+    /* Pricing */
+    .pricing-card {
+      border-radius:14px;
+      padding:18px;
+      background:var(--card);
+      border: 1px solid rgba(138, 127, 68, 0.08);
+    }
+    .pricing-card .price {
+      font-weight:700;
+      font-size:1.6rem;
+      color:var(--accent);
+    }
+    .pricing-card.featured {
+      background: linear-gradient(180deg, rgba(245, 208, 42, 0.1), rgba(255,255,255,0.9));
+      border: 1px solid rgba(245, 208, 42, 0.2);
+      transform: translateY(-6px);
+    }
+
+    /* Stats */
+    .stat {
+      background: linear-gradient(90deg, rgba(245, 208, 42, 0.12), rgba(255,255,255,0.02));
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .stat h3 { margin:0; font-weight:700; color:var(--accent); }
+
+    /* Testimonials */
+    .testimonial {
+      background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.94));
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      margin-top: 48px;
+      color: var(--muted);
+    }
+
+    /* small helpers */
+    .muted { color:var(--muted); }
+    .accent { color:var(--accent); }
+
+    /* Fade-in animations powered by JS */
+    .reveal { opacity:0; transform: translateY(18px); transition: all .7s cubic-bezier(.2,.9,.2,1); }
+    .reveal.visible { opacity:1; transform: translateY(0); }
+
+    /* Responsive tweaks */
+    @media (max-width: 992px){
+      .hero h1 { font-size:1.75rem; }
+      .car-img { height:160px; }
+    }
+    @media (max-width: 576px){
+      .navbar .container { padding-left: 1rem; padding-right:1rem; }
+      .hero { padding: 56px 0 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">MobiGo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">Как это работает</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cars">Автомобили</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Тарифы</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="#advantages">Преимущества</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">Новости</a></li>
+        </ul>
+
+        <div class="d-none d-lg-flex ms-3">
+          <a href="#" class="btn btn-alt me-2">Войти</a>
+          <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#registerModal">Регистрация</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card reveal">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-7">
+            <h1>MobiGo — свобода передвижения</h1>
+            <p class="lead muted">Арендуйте автомобиль на минуты, часы или дни. Удобно, быстро и безопасно — прямо с телефона.</p>
+
+            <div class="d-flex gap-2 flex-wrap mt-3">
+              <a href="#pricing" class="btn btn-cta me-2"><i class="bi bi-car-front-fill me-2"></i>Выбрать тариф</a>
+              <a href="#how-it-works" class="btn btn-alt">Как это работает</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 text-center">
+            <div class="card-modern p-3" style="max-width:320px;margin:0 auto;">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=60" alt="" class="car-img rounded mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="muted small">Эконом</div>
+                  <div class="fw-bold">от 8₽/мин</div>
+                </div>
+                <div>
+                  <button class="btn btn-sm btn-cta" data-bs-toggle="modal" data-bs-target="#carModal">Арендовать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="container mt-5">
+    <div class="row g-3">
+      <div class="col-md-3 reveal">
+        <div class="stat text-center p-3">
+          <h3>1000+</h3>
+          <p class="muted mb-0">Автомобилей</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="stat text-center p-3">
+          <h3>50+</h3>
+          <p class="muted mb-0">Районов</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="stat text-center p-3">
+          <h3>150k+</h3>
+          <p class="muted mb-0">Клиентов</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="stat text-center p-3">
+          <h3>24/7</h3>
+          <p class="muted mb-0">Поддержка</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="container py-5">
+    <h2 class="mb-4 reveal">Как это работает</h2>
+    <div class="row g-3">
+      <div class="col-md-3 reveal">
+        <div class="feature text-center">
+          <div class="mb-2"><span class="badge bg-light text-muted p-3 rounded-circle"><i class="bi bi-person-plus" style="font-size:1.1rem;"></i></span></div>
+          <h5 class="mb-1">Регистрация</h5>
+          <p class="muted small mb-0">Просто через приложение — документы в приложении.</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="feature text-center">
+          <div class="mb-2"><span class="badge bg-light text-muted p-3 rounded-circle"><i class="bi bi-geo-alt" style="font-size:1.1rem;"></i></span></div>
+          <h5 class="mb-1">Поиск авто</h5>
+          <p class="muted small mb-0">Ближайшие автомобили на карте в приложении.</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="feature text-center">
+          <div class="mb-2"><span class="badge bg-light text-muted p-3 rounded-circle"><i class="bi bi-calendar-check" style="font-size:1.1rem;"></i></span></div>
+          <h5 class="mb-1">Бронирование</h5>
+          <p class="muted small mb-0">Бронируйте и разблокируйте машину одним тапом.</p>
+        </div>
+      </div>
+      <div class="col-md-3 reveal">
+        <div class="feature text-center">
+          <div class="mb-2"><span class="badge bg-light text-muted p-3 rounded-circle"><i class="bi bi-credit-card-2-front" style="font-size:1.1rem;"></i></span></div>
+          <h5 class="mb-1">Оплата</h5>
+          <p class="muted small mb-0">Оплата по окончании поездки — безопасно и прозрачно.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARS -->
+  <section id="cars" class="container py-5">
+    <h2 class="mb-4 reveal">Наши автомобили</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 reveal">
+        <article class="card-modern p-3 h-100">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=60" alt="Эконом" class="car-img rounded">
+          <div class="mt-3">
+            <h5 class="mb-1">Эконом класс</h5>
+            <p class="muted small mb-2">Идеально для городских поездок. Манёвренность и экономия топлива.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="fw-semibold">от <span class="accent">8₽/мин</span></div>
+              <div>
+                <button class="btn btn-sm btn-alt me-2" data-bs-toggle="modal" data-bs-target="#carModal">Подробнее</button>
+                <button class="btn btn-sm btn-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Арендовать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-lg-4 reveal">
+        <article class="card-modern p-3 h-100">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=60" alt="Комфорт" class="car-img rounded">
+          <div class="mt-3">
+            <h5 class="mb-1">Комфорт класс</h5>
+            <p class="muted small mb-2">Комфортный салон и больше пространства для длительных поездок.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="fw-semibold">от <span class="accent">12₽/мин</span></div>
+              <div>
+                <button class="btn btn-sm btn-alt me-2" data-bs-toggle="modal" data-bs-target="#carModal">Подробнее</button>
+                <button class="btn btn-sm btn-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Арендовать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-lg-4 reveal">
+        <article class="card-modern p-3 h-100">
+          <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=60" alt="Премиум" class="car-img rounded">
+          <div class="mt-3">
+            <h5 class="mb-1">Премиум класс</h5>
+            <p class="muted small mb-2">Лучшие автомобили для особых случаев и деловых поездок.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="fw-semibold">от <span class="accent">18₽/мин</span></div>
+              <div>
+                <button class="btn btn-sm btn-alt me-2" data-bs-toggle="modal" data-bs-target="#carModal">Подробнее</button>
+                <button class="btn btn-sm btn-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Арендовать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="container py-5">
+    <h2 class="mb-4 reveal">Тарифы</h2>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="pricing-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div><h5 class="mb-0">Базовый</h5></div>
+            <div class="price">8₽/мин</div>
+          </div>
+          <ul class="muted small mb-3">
+            <li>Бензин и техобслуживание включены</li>
+            <li>Парковка в разрешённых зонах</li>
+          </ul>
+          <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">Выбрать</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="pricing-card featured">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div><h5 class="mb-0">Премиум</h5></div>
+            <div class="price">12₽/мин</div>
+          </div>
+          <ul class="muted small mb-3">
+            <li>Приоритетная поддержка</li>
+            <li>Скидки на длительные поездки</li>
+          </ul>
+          <button class="btn btn-cta w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">Популярный</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="pricing-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div><h5 class="mb-0">Бизнес</h5></div>
+            <div class="price">18₽/мин</div>
+          </div>
+          <ul class="muted small mb-3">
+            <li>Премиум автомобили</li>
+            <li>Корпоративные тарифы</li>
+          </ul>
+          <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">Выбрать</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="container py-5">
+    <h2 class="mb-4 reveal">Отзывы</h2>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="testimonial">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="" class="rounded-circle me-3" width="56">
+            <div>
+              <strong>Анна К.</strong>
+              <div class="muted small">5 ☆</div>
+            </div>
+          </div>
+          <p class="muted small mb-0">"Пользуюсь MobiGo уже больше года. Удобно добираться до работы и по делам."</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="testimonial">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="" class="rounded-circle me-3" width="56">
+            <div>
+              <strong>Дмитрий С.</strong>
+              <div class="muted small">4.5 ☆</div>
+            </div>
+          </div>
+          <p class="muted small mb-0">"Автомобили всегда чистые. Приложение работает без нареканий."</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="testimonial">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" class="rounded-circle me-3" width="56">
+            <div>
+              <strong>Ольга М.</strong>
+              <div class="muted small">5 ☆</div>
+            </div>
+          </div>
+          <p class="muted small mb-0">"Как маме двоих детей, MobiGo очень помогает сэкономить время."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="accent">MobiGo</h5>
+        <p class="muted small">Каршеринг в вашем городе — удобно, быстро, безопасно.</p>
+      </div>
+      <div class="col-md-3">
+        <h6 class="mb-2">Компания</h6>
+        <ul class="list-unstyled small muted">
+          <li><a href="#" class="muted">О нас</a></li>
+          <li><a href="#" class="muted">Вакансии</a></li>
+          <li><a href="#" class="muted">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 text-md-end">
+        <h6 class="mb-2">Поддержка</h6>
+        <p class="small muted mb-1">support@mobigo.example</p>
+        <p class="small muted">+7 (999) 123-45-67</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Информация об автомобиле</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1000&q=60" alt="" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+              <h5>Эконом класс</h5>
+              <p class="muted small">Манёвренный, экономичный автомобиль — идеально для коротких поездок по городу.</p>
+              <ul class="small">
+                <li>До 4 пассажиров</li>
+                <li>1 багаж</li>
+                <li>Бензин и страховка включены</li>
+              </ul>
+              <div class="mt-3">
+                <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#bookingModal" data-bs-dismiss="modal">Арендовать сейчас</button>
+                <button class="btn btn-alt ms-2" data-bs-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form class="modal-body">
+          <h5 class="mb-3">Начать аренду</h5>
+          <div class="mb-3">
+            <label class="form-label small">Имя</label>
+            <input class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Телефон</label>
+            <input class="form-control" type="tel" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Выберите тариф</label>
+            <select class="form-select">
+              <option>Базовый — 8₽/мин</option>
+              <option>Премиум — 12₽/мин</option>
+              <option>Бизнес — 18₽/мин</option>
+            </select>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-cta w-100" type="submit">Подтвердить</button>
+            <button class="btn btn-alt w-100" type="button" data-bs-dismiss="modal">Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form class="modal-body">
+          <h5 class="mb-3">Регистрация</h5>
+          <div class="mb-3">
+            <label class="form-label small">ФИО</label>
+            <input class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Email</label>
+            <input class="form-control" type="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Пароль</label>
+            <input class="form-control" type="password" required>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-cta w-100" type="submit">Создать аккаунт</button>
+            <button class="btn btn-alt w-100" type="button" data-bs-dismiss="modal">Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Reveal on scroll using IntersectionObserver
+    (function(){
+      const elems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      elems.forEach(el => observer.observe(el));
+    })();
+
+    // Improve mobile navbar close on link click
+    (function(){
+      const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+      const bsCollapse = document.getElementById('navMenu');
+      navLinks.forEach(l => l.addEventListener('click', () => {
+        if (window.getComputedStyle(document.querySelector('.navbar-toggler')).display !== 'none') {
+          const bsOffcanvas = bootstrap.Collapse.getInstance(bsCollapse);
+          if (bsOffcanvas) bsOffcanvas.hide();
+        }
+      }));
+    })();
+
+    // Focus visibility for keyboard users
+    (function(){
+      let mouse = false;
+      document.addEventListener('mousedown', ()=> mouse=true);
+      document.addEventListener('keydown', ()=> mouse=false);
+      document.addEventListener('focusin', (e)=>{
+        if(!mouse) e.target.classList.add('focus-visible');
+      });
+      document.addEventListener('focusout', (e)=> e.target.classList.remove('focus-visible'));
+    })();
+  </script>
+</body>
+</html>
