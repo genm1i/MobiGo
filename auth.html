@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — MobiGo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hidden { display: none; }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- Форма входа -->
+    <div id="loginBlock">
+        <h2>Вход</h2>
+        <form>
+            <input type="text" placeholder="Логин" required>
+            <input type="password" placeholder="Пароль" required>
+            <a href="profile.html"><button type="button">Войти</button></a>
+        </form>
+        <p>Нет аккаунта? <button id="toReg">Регистрация</button></p>
+    </div>
+
+    <!-- Форма регистрации -->
+    <div id="regBlock" class="hidden">
+        <h2>Регистрация</h2>
+        <form>
+            <input type="text" placeholder="Логин" required>
+            <input type="password" placeholder="Пароль" required>
+            <input type="password" placeholder="Повтор пароля" required>
+            <input type="tel" placeholder="Номер телефона" required>
+            <a href="profile.html"><button type="button">Создать аккаунт</button></a>
+        </form>
+        <p><button id="toLogin">Назад ко входу</button></p>
+    </div>
+
+</div>
+
+<script>
+    const loginBlock = document.getElementById("loginBlock");
+    const regBlock = document.getElementById("regBlock");
+    const toRegBtn = document.getElementById("toReg");
+    const toLoginBtn = document.getElementById("toLogin");
+
+    toRegBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        loginBlock.classList.add("hidden");
+        regBlock.classList.remove("hidden");
+    });
+
+    toLoginBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        regBlock.classList.add("hidden");
+        loginBlock.classList.remove("hidden");
+    });
+</script>
+
+</body>
+</html>

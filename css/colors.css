@@ -1,0 +1,16 @@
+:root {
+  --primary-yellow: #FFD000;
+  --primary-yellow-hover: #FFC700;
+  --primary-black: #0f1724;
+  --primary-white: #ffffff;
+  --primary-gray: #eee;
+  --text-dark: #0f1724;
+  --text-light: #666;
+  --btn-danger: #dc3545;
+}
+
+body {
+  background: #fff7c9;
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+}

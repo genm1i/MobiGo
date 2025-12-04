@@ -1,0 +1,93 @@
+/* Адаптация */
+@media (max-width: 1200px) {
+  .floating-navbar {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .floating-navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .row, .flex-row {
+    flex-direction: column;
+  }
+
+  .flex-fill {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    margin-bottom: 15px;
+  }
+}
+
+/* Бургер */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+
+  #nav-menu.show {
+    display: flex;
+  }
+}

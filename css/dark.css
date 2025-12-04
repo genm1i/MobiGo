@@ -1,0 +1,44 @@
+/* Тёмная тема */
+body.dark-theme {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-theme .floating-navbar {
+  background: #1e1e1e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .logo {
+  background: var(--primary-yellow);
+  color: var(--primary-black);
+}
+
+body.dark-theme .profile-card,
+body.dark-theme .settings-card,
+body.dark-theme .trip-card,
+body.dark-theme .rental-card,
+body.dark-theme .faq-item,
+body.dark-theme .profile-redirect-card {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #333;
+}
+
+body.dark-theme .btn-yellow {
+  background: #ffc700;
+  color: #121212;
+}
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background: #2c2c2c;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+body.dark-theme .footer-card {
+  background: #1e1e1e;
+  color: #fff;
+}
