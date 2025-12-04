@@ -1,44 +1,41 @@
-/* Тёмная тема */
-body.dark-theme {
-  background: #121212;
-  color: #f0f0f0;
+body.dark {
+  background: #0d1117;
+  color: white;
 }
 
-body.dark-theme .floating-navbar {
-  background: #1e1e1e;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+body.dark .floating-navbar {
+  background: #161b22;
+  color: white;
 }
 
-body.dark-theme .logo {
-  background: var(--primary-yellow);
-  color: var(--primary-black);
+body.dark .advantage-card {
+  background: #222;
+  color: white;
 }
 
-body.dark-theme .profile-card,
-body.dark-theme .settings-card,
-body.dark-theme .trip-card,
-body.dark-theme .rental-card,
-body.dark-theme .faq-item,
-body.dark-theme .profile-redirect-card {
-  background: #1e1e1e;
-  color: #f0f0f0;
-  border: 1px solid #333;
+body.dark .profile-card,
+body.dark .auth-container,
+body.dark .footer-card,
+body.dark .settings-card,
+body.dark .trip-card,
+body.dark .rental-card {
+  background: #161b22;
+  color: white;
 }
 
-body.dark-theme .btn-yellow {
-  background: #ffc700;
-  color: #121212;
+body.dark .btn-dark {
+  background: #fff;
+  color: #000;
 }
 
-body.dark-theme input,
-body.dark-theme select,
-body.dark-theme textarea {
-  background: #2c2c2c;
-  color: #f0f0f0;
-  border: 1px solid #444;
+body.dark .faq-question {
+  background: #222;
+  color: white;
 }
 
-body.dark-theme .footer-card {
-  background: #1e1e1e;
-  color: #fff;
+body.dark input,
+body.dark .form-control {
+  background: #1e2530;
+  border-color: #555;
+  color: white;
 }

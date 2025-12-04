@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Вход — MobiGo</title>
@@ -9,59 +10,102 @@
     <link rel="stylesheet" href="css/dark.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .hidden { display: none; }
-        button { cursor: pointer; }
-    </style>
 </head>
+
 <body>
-
-<div class="auth-container">
-
-    <!-- Форма входа -->
-    <div id="loginBlock">
-        <h2>Вход</h2>
-        <form>
-            <input type="text" placeholder="Логин" required>
-            <input type="password" placeholder="Пароль" required>
-            <a href="profile.html"><button type="button">Войти</button></a>
-        </form>
-        <p>Нет аккаунта? <button id="toReg">Регистрация</button></p>
+    <div class="floating-navbar">
+        <div class="nav-left">
+            <div class="logo"><a href="index.html">MobiGo</a></div>
+            <span class="city">Чебоксары</span>
+        </div>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-right" id="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="bi bi-moon"></i>
+            </button>
+            <div class="user-icon"><a href="auth.html"><i class="bi bi-person"></i></a></div>
+        </div>
     </div>
 
-    <!-- Форма регистрации -->
-    <div id="regBlock" class="hidden">
-        <h2>Регистрация</h2>
-        <form>
-            <input type="text" placeholder="Логин" required>
-            <input type="password" placeholder="Пароль" required>
-            <input type="password" placeholder="Повтор пароля" required>
-            <input type="tel" placeholder="Номер телефона" required>
-            <a href="profile.html"><button type="button">Создать аккаунт</button></a>
-        </form>
-        <p><button id="toLogin">Назад ко входу</button></p>
+    <div class="auth-container">
+        <div id="loginBlock">
+            <h2>Вход</h2>
+            <form>
+                <input type="text" placeholder="Логин" required>
+                <input type="password" placeholder="Пароль" required>
+                <a href="profile.html"><button type="button">Войти</button></a>
+            </form>
+            <p>Нет аккаунта? <button id="toReg">Регистрация</button></p>
+        </div>
+        <div id="regBlock" class="hidden">
+            <h2>Регистрация</h2>
+            <form>
+                <input type="text" placeholder="Логин" required>
+                <input type="password" placeholder="Пароль" required>
+                <input type="password" placeholder="Повтор пароля" required>
+                <input type="tel" placeholder="Номер телефона" required>
+                <a href="profile.html"><button type="button">Создать аккаунт</button></a>
+            </form>
+            <p><button id="toLogin">Назад ко входу</button></p>
+        </div>
     </div>
 
-</div>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-card">
+                <span class="logo" style="background:white;color:black;">MobiGo</span>
+                <h2 style="margin-top:20px;font-size:32px;">7 (000) 000-00-00</h2>
+                <p>
+                    г. Чебоксары<br>ул. Примерная, д.10<br>ПН–ПТ 09:00–19:00
+                </p>
+                <button class="btn-yellow">Оставить заявку</button>
+                <br><br>
+                <div class="footer-socials">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-telegram"></i></a>
+                </div>
+                <p style="opacity:.8;font-size:14px;margin-top:10px;">
+                    Политика конфиденциальности · Договор оферты · Рекуррентные платежи
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<script>
-    const loginBlock = document.getElementById("loginBlock");
-    const regBlock = document.getElementById("regBlock");
-    const toRegBtn = document.getElementById("toReg");
-    const toLoginBtn = document.getElementById("toLogin");
+    <script>
+        const loginBlock = document.getElementById("loginBlock");
+        const regBlock = document.getElementById("regBlock");
+        const toRegBtn = document.getElementById("toReg");
+        const toLoginBtn = document.getElementById("toLogin");
 
-    toRegBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        loginBlock.classList.add("hidden");
-        regBlock.classList.remove("hidden");
-    });
+        toRegBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            loginBlock.classList.add("hidden");
+            regBlock.classList.remove("hidden");
+        });
 
-    toLoginBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        regBlock.classList.add("hidden");
-        loginBlock.classList.remove("hidden");
-    });
-</script>
+        toLoginBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            regBlock.classList.add("hidden");
+            loginBlock.classList.remove("hidden");
+        });
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+        }
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+    </script>
 
 </body>
+
 </html>

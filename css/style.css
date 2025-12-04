@@ -324,7 +324,6 @@ section {
 
 }
 
-
 /*профиль*/
 .profile-section {
   padding: 50px 0;
@@ -679,4 +678,22 @@ section {
 
 .btn-dark:hover {
   background: #222;
+}
+
+/*кнопка перекл тем*/
+.theme-toggle {
+  background: #f3f3f3;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.25s;
+  width: 36px;
+  height: 36px;
+}
+
+.theme-toggle:hover {
+  background: #e2e2e2;
 }

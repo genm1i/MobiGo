@@ -27,6 +27,9 @@
     <div class="nav-right" id="nav-menu">
       <a href="index.html">Главная</a>
       <a href="catalog.html">Каталог</a>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="bi bi-moon"></i>
+      </button>
       <div class="user-icon"><a href="auth.html"><i class="bi bi-person"></i></a></div>
     </div>
   </div>
@@ -62,7 +65,8 @@
       </div>
       <div style="display:flex; gap:10px; margin-top:15px;">
         <button class="btn btn-dark-profile flex-fill">Сохранить изменения</button>
-        <button class="btn btn-outline-danger-profile flex-fill" onclick="window.location.href='auth.html'">Выйти</button>
+        <button class="btn btn-outline-danger-profile flex-fill"
+          onclick="window.location.href='auth.html'">Выйти</button>
       </div>
       <h4 style="margin-top:40px;">Последние поездки</h4>
       <div class="trip-card">
@@ -103,6 +107,17 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+  </script>
 
 </body>
 

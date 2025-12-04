@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="floating-navbar">
+  <div class="floating-navbar">
     <div class="nav-left">
       <div class="logo"><a href="index.html">MobiGo</a></div>
       <span class="city">Чебоксары</span>
@@ -27,6 +27,9 @@
     <div class="nav-right" id="nav-menu">
       <a href="index.html">Главная</a>
       <a href="catalog.html">Каталог</a>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="bi bi-moon"></i>
+      </button>
       <div class="user-icon"><a href="auth.html"><i class="bi bi-person"></i></a></div>
     </div>
   </div>
@@ -150,29 +153,25 @@
   <footer class="footer-section">
     <div class="container">
       <div class="footer-card">
-
         <span class="logo" style="background:white;color:black;">MobiGo</span>
-
         <h2 style="margin-top:20px;font-size:32px;">7 (000) 000-00-00</h2>
         <p>
           г. Чебоксары<br>ул. Примерная, д.10<br>ПН–ПТ 09:00–19:00
         </p>
-
         <button class="btn-yellow">Оставить заявку</button>
-
         <br><br>
         <div class="footer-socials">
           <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="#"><i class="bi bi-instagram"></i></a>
           <a href="#"><i class="bi bi-telegram"></i></a>
         </div>
-
         <p style="opacity:.8;font-size:14px;margin-top:10px;">
           Политика конфиденциальности · Договор оферты · Рекуррентные платежи
         </p>
       </div>
     </div>
   </footer>
+
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.rental-card');
@@ -192,6 +191,15 @@
         });
       });
     });
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
   </script>
 </body>
 
