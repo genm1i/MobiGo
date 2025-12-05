@@ -734,9 +734,20 @@ section {
   transition: .25s;
   text-decoration: none;
   border: 2px solid #ccc;
+  color: #ffffff;
+}
+.btn-outline-danger-profile{
   color: #000;
 }
-
+.card-buttons .btn{
+  color: #000;
+}
+.card-buttons .btn-dark{
+  color: white;
+}
+.settings-card .btn{
+  color: #000;
+}
 .btn:hover {
   border-color: #000;
 }
