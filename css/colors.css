@@ -17,7 +17,5 @@ body {
 }
 html, body {
   width: 100%;
-  overflow-x: hidden; /* предотвращает горизонтальный скролл */
+  overflow-x: hidden; 
 }
-
-
