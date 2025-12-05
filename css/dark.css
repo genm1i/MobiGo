@@ -49,9 +49,9 @@ body.dark .phone-card-btn-wrapper a{
   background-color: var(--primary-yellow);
   color: #000;
 }
-body.dark .input-group,
-body.dark .form-control{
-  background-color: #0f0f0f;
+body.dark .phone-input,
+body.dark .phone-prefix{
+  background-color: #efefef;
   border-color: #515151;
 }
 body.dark .faq-answer{
@@ -175,4 +175,8 @@ body.dark .car-specs{
 
 body.dark .form-group label{
   color: white;
+}
+
+body.dark #nav-menu.show{
+  background-color: #222;
 }

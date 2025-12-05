@@ -353,9 +353,10 @@ section {
   border: 1px solid #ddd;
   border-radius: 16px;
   overflow: hidden;
+  background-color: #eeeeee;
 }
 .phone-prefix {
-  background: #f8f9fa;
+  background: #eeeeee;
   color: #333;
   padding: 0 16px;
   font-weight: 600;
