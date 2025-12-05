@@ -1,16 +1,62 @@
 body.dark {
-  background: #0d1117;
+  background: #131313;
   color: white;
 }
 
 body.dark .floating-navbar {
-  background: #161b22;
+  background: #4a4a4a;
   color: white;
 }
-
+body.dark .hero-title{
+  color: white;
+}
+body.dark .hero-text{
+  color: #838383;
+}
 body.dark .advantage-card {
   background: #222;
   color: white;
+}
+body.dark .theme-toggle,
+body.dark .user-icon{
+  background-color: var(--primary-yellow);
+}
+body.dark .advantages-section{
+  background-color: var(--primary-yellow);
+}
+body.dark .advantages-section .section-title{
+  color: #000;
+}
+body.dark .icon-box{
+  background-color: white;
+}
+body.dark .icon-box i{
+  color: #000;
+}
+body.dark .step-card h3,.step-card p{
+  color: #000;
+}
+body.dark .step-icon{
+  background-color: #000;
+}
+body.dark .index-profile-card{
+  background-color: #222;
+}
+body.dark .index-profile-card .fw-bold{
+  color: var(--primary-yellow);
+}
+body.dark .phone-card-btn-wrapper a{
+  background-color: var(--primary-yellow);
+  color: #000;
+}
+body.dark .input-group,
+body.dark .form-control{
+  background-color: #0f0f0f;
+  border-color: #515151;
+}
+body.dark .faq-answer{
+  background-color: var(--primary-yellow);
+  color: #000;
 }
 
 body.dark .profile-card,
@@ -19,13 +65,8 @@ body.dark .footer-card,
 body.dark .settings-card,
 body.dark .trip-card,
 body.dark .rental-card {
-  background: #161b22;
-  color: white;
-}
+  background: #4a4a4a;
 
-body.dark .btn-dark {
-  background: #fff;
-  color: #000;
 }
 
 body.dark .faq-question {
@@ -33,9 +74,75 @@ body.dark .faq-question {
   color: white;
 }
 
-body.dark input,
-body.dark .form-control {
-  background: #1e2530;
-  border-color: #555;
+body.dark .filter-btn{
+  background-color: #222;
+}
+body.dark .filter-btn.active{
+  background: #FFD000;
+  border-color: #FFD000;
+  color: #000;
+}
+body.dark .tag{
+  color: black;
+}
+body.dark .card-body{
+  background-color: #000;
+}
+body.dark .price{
+  color: #000;
+  background-color: white;
+}
+body.dark .btn{
   color: white;
+}
+body.dark .btn-dark {
+  background: var(--primary-yellow);
+  color: #000;
+}
+
+body.dark .auth-container{
+  background-color: #222;
+}
+body.dark  .auth-container h2{
+  color: var(--primary-yellow);
+}
+body.dark .auth-container button{
+  background-color: var(--primary-yellow);
+  color: #000;
+}
+body.dark .auth-container p{
+  color: white;
+}
+
+
+body.dark .profile-section{
+  background-color: #131313;
+}
+body.dark .profile-card{
+  background-color: #000;
+}
+body.dark .avatar{
+  background-color: var(--primary-yellow);
+  color: #000;
+}
+body.dark .flex-fill{
+  background-color: var(--primary-yellow);
+  color: #000;
+}
+body.dark .btn-dark-profile{
+  background-color: #4a4a4a;
+  color: white;
+}
+body.dark .btn-outline-danger-profile{
+  background-color: white;
+}
+body.dark .trip-card{
+  background-color: var(--primary-yellow);
+  color: #000;
+}
+body.dark .settings-card{
+  background-color: #000;
+}
+body.dark .btn-yellow{
+  color: #000;
 }
