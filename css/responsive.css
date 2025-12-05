@@ -1,3 +1,5 @@
+/* ======================= ОБЩИЕ СТИЛИ ======================= */
+
 @media (max-width: 1200px) {
   .floating-navbar {
     width: 95%;
@@ -10,6 +12,7 @@
   }
 }
 
+/* Схожие стили для 768 ↓ */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 28px;
@@ -21,19 +24,16 @@
     text-align: center;
   }
 
-  .hero-grid {
+  .hero-grid,
+  .row,
+  .flex-row {
     flex-direction: column;
     gap: 20px;
   }
 
-  .row, .flex-row {
-    flex-direction: column;
-  }
-
-  .flex-fill {
-    width: 100%;
-  }
 }
+
+/* ======================= САМЫЕ МАЛЕНЬКИЕ ТЕЛЕФОНЫ ======================= */
 
 @media (max-width: 480px) {
   .profile-card {
@@ -49,6 +49,8 @@
     margin-bottom: 15px;
   }
 }
+
+/* ======================= БУРГЕР-МЕНЮ (НЕ ТРОГАЮ) ======================= */
 
 .burger {
   display: none;
@@ -89,3 +91,308 @@
   }
 }
 
+/* ======================= ГЕРО-СЕКЦИЯ (КАРТА) ======================= */
+
+@media (min-width: 992px) {
+  .hero-grid {
+    flex-direction: row;
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .hero-map {
+    flex: 1;
+    max-width: 50%;
+    margin-left: auto;
+  }
+
+  .hero-map iframe {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content,
+  .hero-map {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-map iframe {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-map iframe {
+    height: 200px;
+    margin-left: 0;
+  }
+}
+
+/* ======================= FAQ СЕКЦИЯ ======================= */
+
+.faq-section,
+.faq-section .container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .faq-section {
+    padding: 40px 15px;
+  }
+
+  .faq-section .container {
+    padding: 0 10px;
+  }
+
+  .faq-question {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .faq-question {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+  }
+}
+
+/* ======================= АВТОРИЗАЦИЯ — ОБЩИЕ СЖАТИЯ ======================= */
+
+@media (max-width: 991px) {
+  .auth-container {
+    max-width: 90%;
+    margin: 60px auto;
+    padding: 25px 20px;
+  }
+
+  .auth-container h2 {
+    font-size: 24px;
+  }
+
+  .auth-container input,
+  .auth-container button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-container {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 20px 15px;
+  }
+
+  .auth-container h2 {
+    font-size: 22px;
+  }
+
+  .auth-container input,
+  .auth-container button {
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  .auth-container p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575px) {
+  .auth-container {
+    margin: 30px 15px;
+    padding: 18px 12px;
+  }
+
+  .auth-container h2 {
+    font-size: 20px;
+  }
+
+  .auth-container input,
+  .auth-container button {
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .auth-container p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .auth-container {
+    padding: 15px 10px;
+  }
+
+  .auth-container h2 {
+    font-size: 18px;
+  }
+
+  .auth-container input,
+  .auth-container button {
+    font-size: 12px;
+    border-radius: 10px;
+  }
+}
+
+/* ======================= ПРОФИЛЬ ======================= */
+
+@media (max-width: 991px) {
+  .profile-section {
+    padding: 40px 20px;
+  }
+
+  .profile-card {
+    padding: 30px 25px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-section {
+    padding: 30px 15px;
+  }
+
+  .profile-card {
+    padding: 25px 20px;
+    border-radius: 20px;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .row,
+  .flex-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .profile-card {
+    padding: 20px 15px;
+  }
+
+  .flex-fill {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-card {
+    padding: 15px 12px;
+  }
+}
+
+/* Ландшафтный режим */
+@media (max-width: 767px) and (orientation: landscape) {
+  .profile-section {
+    padding: 15px;
+  }
+
+  .profile-info {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .row > div {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 24px;
+    margin: 0 10px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .tariff-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+}
+/* ======================= ФУТЕР ======================= */
+
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 40px 0;
+  }
+
+  .footer-card {
+    padding: 30px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    max-width: none;
+    flex: none;
+  }
+
+  .footer-right {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-left h2 {
+    font-size: 28px;
+  }
+
+  .claim-form input,
+  .btn-yellow {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-right p {
+    max-width: 300px;
+    margin: 12px auto 0;
+  }
+}

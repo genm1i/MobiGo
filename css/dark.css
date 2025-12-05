@@ -93,11 +93,19 @@ body.dark .price{
   background-color: white;
 }
 body.dark .btn{
-  color: white;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+}
+body.dark .btn:hover{
+  color: rgb(0, 0, 0);
+  background-color: var(--primary-yellow);
 }
 body.dark .btn-dark {
   background: var(--primary-yellow);
   color: #000;
+}
+body.dark .btn-dark:hover{
+  background: #222;
 }
 
 body.dark .auth-container{
@@ -145,4 +153,26 @@ body.dark .settings-card{
 }
 body.dark .btn-yellow{
   color: #000;
+}
+
+body.dark .modal-content{
+  background-color: #131313;
+}
+body.dark .modal-title{
+  color: white;
+}
+body.dark .tariff-info h4{
+  color: white;
+}
+body.dark .tariff-row{
+  background-color: white;
+  border-color: #000;
+  color: #000;
+}
+body.dark .car-specs{
+  background-color: var(--primary-yellow);
+}
+
+body.dark .form-group label{
+  color: white;
 }

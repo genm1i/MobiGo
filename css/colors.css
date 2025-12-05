@@ -13,4 +13,11 @@ body {
   background: #fff7c9;
   color: var(--text-dark);
   font-family: 'Inter', sans-serif;
+  position: relative;
 }
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* предотвращает горизонтальный скролл */
+}
+
+
